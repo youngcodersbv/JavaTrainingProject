@@ -1,0 +1,13 @@
+# Maven
+/target
+.mvn
+
+# Intellij Idea
+.idea
+*.iml
+
+# Apple
+.DS_Store
+
+# Windows
+
