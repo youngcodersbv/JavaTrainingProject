@@ -17,8 +17,8 @@ public class HelloWorld {
         people.add(jan);
 
         List<StoryTeller> tellers = new ArrayList();
-        people.add(kees);
-        people.add(jan);
+        tellers.add(kees);
+        tellers.add(jan);
 
         for (AbstractPerson person: people) {
             System.out.println(String.format("Ik ben %s", person.getName()));
