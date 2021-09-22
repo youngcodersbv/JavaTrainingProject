@@ -1,13 +1,17 @@
 package hello;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class HelloWorld {
+    public static Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
     public static void main(String[] args) {
         // Outputting to the console
-        System.out.println("HelloWorld");
+        logger.info("HelloWorld");
 
         ContretePerson kees = new ContretePerson("Kees Kaas", 43);
         ContretePerson jan = new VeryImportantPerson("Jan Smit", 48);
@@ -26,19 +30,19 @@ public class HelloWorld {
                 .forEach(HelloWorld::tellPersonIsOld);
 
         for (StoryTeller teller: tellers) {
-            System.out.println(teller.tellLifeStory());
+            logger.info(teller.tellLifeStory());
         }
     }
 
     public static String introducePerson(AbstractPerson p) {
         String sentence = String.format("Ik ben %s", p.getName());
-        System.out.println(sentence);
+        logger.debug(sentence);
         return sentence;
     }
 
     public static String tellPersonIsOld(AbstractPerson p) {
         String sentence = String.format("Ik ben oud met %d jaar", p.getAge());
-        System.out.println(sentence);
+        logger.warn(sentence);
         return sentence;
     }
 }
