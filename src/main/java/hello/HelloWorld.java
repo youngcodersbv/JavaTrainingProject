@@ -21,16 +21,24 @@ public class HelloWorld {
         tellers.add(jan);
 
         people.stream()
-                .peek(p -> {
-                    System.out.println(String.format("Ik ben %s", p.getName()));
-                })
+                .peek(HelloWorld::introducePerson)
                 .filter(AbstractPerson::isOld)
-                .forEach(p -> {
-                    System.out.println(String.format("Ik ben oud met %d jaar", p.getAge()));
-                });
+                .forEach(HelloWorld::tellPersonIsOld);
 
         for (StoryTeller teller: tellers) {
             System.out.println(teller.tellLifeStory());
         }
+    }
+
+    public static String introducePerson(AbstractPerson p) {
+        String sentence = String.format("Ik ben %s", p.getName());
+        System.out.println(sentence);
+        return sentence;
+    }
+
+    public static String tellPersonIsOld(AbstractPerson p) {
+        String sentence = String.format("Ik ben oud met %d jaar", p.getAge());
+        System.out.println(sentence);
+        return sentence;
     }
 }
