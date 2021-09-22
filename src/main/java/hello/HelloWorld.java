@@ -17,15 +17,17 @@ public class HelloWorld {
         people.add(jan);
 
         List<StoryTeller> tellers = new ArrayList();
-        people.add(kees);
-        people.add(jan);
+        tellers.add(kees);
+        tellers.add(jan);
 
-        for (AbstractPerson person: people) {
-            System.out.println(String.format("Ik ben %s", person.getName()));
-            if (person.isOld()) {
-                System.out.println(String.format("Ik ben oud met %d jaar", person.getAge()));
-            }
-        }
+        people.stream()
+                .peek(p -> {
+                    System.out.println(String.format("Ik ben %s", p.getName()));
+                })
+                .filter(AbstractPerson::isOld)
+                .forEach(p -> {
+                    System.out.println(String.format("Ik ben oud met %d jaar", p.getAge()));
+                });
 
         for (StoryTeller teller: tellers) {
             System.out.println(teller.tellLifeStory());
