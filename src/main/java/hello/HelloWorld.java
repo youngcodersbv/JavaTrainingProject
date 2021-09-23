@@ -10,8 +10,8 @@ public class HelloWorld {
     public static Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
     public static void main(String[] args) {
-        // Outputting to the console
-        logger.info("HelloWorld");
+        // Outputting to the console with a placeholder
+        logger.info("Placeholder: {}", "HelloWorld");
 
         ContretePerson kees = new ContretePerson("Kees Kaas", 43);
         ContretePerson jan = new VeryImportantPerson("Jan Smit", 48);
